@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+.site {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  margin: 0 auto;
+}
+
+html, body {
+   width: 100%;
+   height: 100%;
+}
+
+main {
+  padding-left: min(2.5%, 20px);
+  position: relative;
+  padding-right: 40px; /* Adjust the padding to create space for the probability bar */
+}
+
+body {
+  background-color:#ffffff;
+  color: black;
+  font-size: 16px;
+  padding: max(30px, 6.25%);
+  line-height: 1.45;
+  box-sizing: border-box;
+  font-family: 'Helvetica';
+  color: #363636;
+  max-width: max(46.25%, calc(6.25% + 800px));
+  width: 100%;
+}
+
+.site-header,
+.site-footer {
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0; 
+          z-index: 914;
+}
+
+.authors {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+a:link, a:visited, a:active {
+  color: inherit;
+  text-decoration: underline;
+  -webkit-text-decoration-color: rgba(161, 161, 161, 0.7);
+}
+
+a:hover {
+  color: #000000;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #000000;
+}
+
+.floatleft {
+    float:left;
+}
+.floatright {
+    float:right;
+    margin-left: min(2.5%, 20px);
+    margin-right: min(2.5%, 20px);
+}
+
+.footer {
+  padding-bottom: 25px;
+}
+
+.rating {
+  border-width: 3px;
+  border-style: solid;
+  display: inline;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-right: 13px;
+  padding-left: 13px;
+}
+
+ul li {
+  justify-content: space-between;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+ul {
+  padding-inline-start: min(5%, 40px);
+}
+
+.tex {
+  font-family: 'Latin Modern Roman';
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+img.half {
+  max-width: max(50%, 300px);
+}
+
+.heading {
+  margin-top: 0px;
+}
+
+.generation {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.generation.active,
+.generation:hover, .generation:active {
+  background-color: #CCC;
+}
+
+.context {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#generation-container {
+  position: relative;
+  display: inline-block;
+}
+
+#probability-container {
+  position: absolute;
+  right: -60px; /* Adjust the distance from the generated tokens */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  #probability-container {
+    right: -40px; /* Adjust the distance for mobile screens */
+  }
+}
+
+#probability-bar {
+  width: 20px;
+  height: 150px; /* Adjust the height as needed */
+  background-color: #ccc;
+  position: relative;
+  border: 1px solid #000; /* Add border around the bar */
+  margin-bottom: 5px; /* Add margin bottom for spacing */
+}
+
+#probability-bar.min-height {
+  min-height: 100px; /* Set the desired minimum height */
+}
+
+#probability-value {
+  font-size: 16px; /* Adjust font size as needed */
+  text-align: center; /* Center align the probability value */
+}
+
+#probability-fill {
+  width: 100%;
+  height: 0%;
+  background-color: #4CAF50;
+  position: absolute;
+  bottom: 0;
+  transition: height 0.5s ease;
+}
